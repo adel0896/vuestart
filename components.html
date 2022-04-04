@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Components</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  </head>
+  <body>
+    <div id="root">
+<tasklist></tasklist>
+<!-- <task>Go to the store</task>
+<task>Go to the bank</task>
+<task>Go somewhere</task>
+<task>Lala</task> -->
+<new-message title='hello world' body='Lorem ipsum smth kjsfhbaj'></new-message>
+<new-message title='another title' body='blabla'></new-message>
+
+<modal v-if="showModal" @close="showModal = false">
+<p>Any text in it</p>
+</modal>
+<button @click="showModal = true" >Show Modal</button>
+
+
+    </div>
+
+      <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+      <script src="components.js"></script>
+  </body>
+</html>

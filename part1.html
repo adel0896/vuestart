@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Start</title>
+    <style >
+      .color-red{
+        color: red;
+      }
+      .color-blue {
+        color: blue;
+      }
+      .is-loading {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+
+<ul>
+  <li v-for="name in names" v-text="name"></li>
+</ul>
+<!-- the v-model conects this element with something in the data -->
+<input type="text" id="input" v-model="newName"  >
+
+<!-- the v-on or @ is for adding event listeners -->
+<button type="button" name="button" @click="addName">Add name</button>
+
+<!-- the v-bind or : is for binding attributes  -->
+<button :title="title">Hover over me</button>
+
+<!-- add the class is-loading if is-loading is true, it is set by default to false in data -->
+<button :class="{'is-loading': isLoading }" @click="toggleClass">click me</button>
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+    var app = new Vue({
+       el: '#root',
+
+       data:{
+        isLoading:false,
+        className: 'color-red',
+        newName: '',
+        names: ['joe', 'jack', 'john'],
+        title: 'now the title is being set through javascript',
+      },
+      methods: {
+        addName(){
+          this.names.push(this.newName);
+          this.newName = '';
+        },
+        toggleClass() {
+          this.isLoading = true;
+        }
+      },
+      // this part is normal javascript and mouted loads smth after the data has loaded
+       // mounted() {
+       //   document.querySelector('#button').addEventListener('click', ()=>{
+       //     let name = document.querySelector("#input").value;
+       //     app.names.push(name);
+       //     document.querySelector("#input").value = '';
+       //   })
+       // }
+    })
+
+    </script>
+  </body>
+</html>
